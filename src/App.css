@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-
 }
 
 .App-logo {
@@ -10,7 +9,7 @@
 
 .App-header {
   background-color: var(--detail-color-light);
-  background-image: url("assets/pileofpapers.jpg");
+  background-image: url('assets/pileofpapers.jpg');
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -22,7 +21,6 @@
   padding-top: 125px;
   padding-bottom: 125px;
 }
-
 
 /* @keyframes App-logo-spin {
   from {

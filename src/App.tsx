@@ -1,6 +1,6 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+// import logo from './logo.svg';
+import './App.css'
 
 /**
  * Features:
@@ -12,27 +12,25 @@ import './App.css';
  * Sort tasks
  * - alphabetically
  * - Completed / not completed
- * - By deadline date / priority 
- * 
+ * - By deadline date / priority
+ *
  * Drag and drop?
- * 
- * Task: 
+ *
+ * Task:
  * - Name : String
  * - Description : String
  * - Deadline date
  * - Created on date :
  * - Completed : boolean
- * 
+ *
  */
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        My todos
-      </header>
+      <header className="App-header">My todos</header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
