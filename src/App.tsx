@@ -2,22 +2,34 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+/**
+ * Features:
+ * Add a task
+ * Delete task
+ * Mark task as completed
+ * Delete all tasks
+ * Delete completed tasks
+ * Sort tasks
+ * - alphabetically
+ * - Completed / not completed
+ * - By deadline date / priority 
+ * 
+ * Drag and drop?
+ * 
+ * Task: 
+ * - Name : String
+ * - Description : String
+ * - Deadline date
+ * - Created on date :
+ * - Completed : boolean
+ * 
+ */
+
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        My todos
       </header>
     </div>
   );
