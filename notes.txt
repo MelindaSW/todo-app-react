@@ -1,0 +1,32 @@
+
+Features:
+ Add a task
+ Delete task
+ Mark task as completed
+ Delete all tasks
+ Delete completed tasks
+ Sort tasks
+ - alphabetically
+ - Completed / not completed
+ - By deadline date / priority
+ 
+ Drag and drop?
+
+ Task:
+- Id : number
+- Name : String
+- Description : String
+- Deadline date
+- Created on date :
+- Completed : boolean
+
+ 
+#3C2317
+#628E90
+#B4CDE6
+#F5EFE6
+rgb(60, 35, 23)
+rgb(98, 142, 144)
+rgb(180, 205, 230)
+rgb(245, 239, 230)
+https://colorhunt.co/palette/3c2317628e90b4cde6f5efe6

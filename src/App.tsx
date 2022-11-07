@@ -1,35 +1,18 @@
 import React from 'react'
-// import logo from './logo.svg';
-import './App.css'
+import { Provider } from 'react-redux'
+import store from './redux/store'
+import NewTaskInput from './components/NewTaskInput/NewTaskInput'
 
-/**
- * Features:
- * Add a task
- * Delete task
- * Mark task as completed
- * Delete all tasks
- * Delete completed tasks
- * Sort tasks
- * - alphabetically
- * - Completed / not completed
- * - By deadline date / priority
- *
- * Drag and drop?
- *
- * Task:
- * - Name : String
- * - Description : String
- * - Deadline date
- * - Created on date :
- * - Completed : boolean
- *
- */
+import './App.css'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">My todos</header>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <header className="App-header">My todos</header>
+        <NewTaskInput />
+      </div>
+    </Provider>
   )
 }
 
