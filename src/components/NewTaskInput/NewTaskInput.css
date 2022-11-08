@@ -28,7 +28,38 @@ button {
   border: none;
   background-color: var(--detail-color-dark);
   color: var(--main-color);
+  cursor: pointer;
   font-size: x-large;
   font-weight: bold;
   margin-top: 1rem;
+  width: 45px;
+}
+
+button:hover {
+  background-color: var(--detail-color-dark-opaque);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  background-color: var(--detail-color-dark-opaque);
+}
+
+#add-days-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+#add-days-container > label {
+  align-self: center;
+}
+
+#add-days-container > input {
+  margin-top: 0px;
+}
+
+#increment-days {
+  width: 60px;
+  margin-left: 10px;
 }

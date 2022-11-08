@@ -15,8 +15,9 @@ function NewTaskInput() {
   const [formState, setFormState] = useState<IFormState>({
     title: '',
     description: '',
-    incrementDays: 3,
+    incrementDays: 0,
   })
+  const [submitEnabled, setSubmitEnabled] = useState(false)
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -25,15 +26,20 @@ function NewTaskInput() {
 
   const handleOnChange = (event: React.FormEvent<HTMLInputElement>) => {
     const targetId = event.currentTarget.id
-    const currentTarget: string | number | null = event.currentTarget.value
-    console.log(targetId + ' ' + currentTarget)
+    const currentTargetValue: string | number | null = event.currentTarget.value
+    // console.log({ currentTargetValue, targetId })
+
     setFormState({
-      title: currentTarget !== null && targetId === 'task-title' ? currentTarget : formState.title,
-      description: currentTarget !== null && targetId === 'task-description' ? currentTarget : formState.description,
+      title: currentTargetValue !== null && targetId === 'task-title' ? currentTargetValue : formState.title,
+      description:
+        currentTargetValue !== null && targetId === 'task-description' ? currentTargetValue : formState.description,
       incrementDays:
-        currentTarget !== null && targetId === 'incrementDays' ? Number(currentTarget) : formState.incrementDays,
+        currentTargetValue !== null && targetId === 'increment-days'
+          ? Number(currentTargetValue)
+          : formState.incrementDays,
     })
-    console.log('formstate:: ' + JSON.stringify(formState))
+
+    setSubmitEnabled(formState.title.length > 0 && formState.description.length > 0 && formState.incrementDays > 0)
   }
 
   return (
@@ -44,10 +50,14 @@ function NewTaskInput() {
         id="task-description"
         type="text"
         name="task-description"
-        placeholder="Description"
+        placeholder="Description *"
         onChange={(e) => handleOnChange(e)}
       />
-      <button type="submit" onClick={() => dispatch(addNewTask(formState))}>
+      <div id="add-days-container">
+        <label>Deadline in days *</label>
+        <input type="number" id="increment-days" name="days" step="1" onChange={(e) => handleOnChange(e)} />
+      </div>
+      <button disabled={!submitEnabled} type="submit" onClick={() => dispatch(addNewTask(formState))}>
         +
       </button>
     </form>

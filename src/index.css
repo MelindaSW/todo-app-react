@@ -3,6 +3,7 @@
   --main-text-color: #f5efe6;
   --detail-color-dark: #628e90;
   --detail-color-light: #b4cde6;
+  --detail-color-dark-opaque: #628e9075;
 }
 
 body {

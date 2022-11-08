@@ -57,9 +57,6 @@ export const taskSlice = createSlice({
       }
 
       state.tasks.push(newTask)
-      for (let i = 0; i < state.tasks.length; i++) {
-        console.log(JSON.stringify(state.tasks[i]))
-      }
     },
   },
 })
