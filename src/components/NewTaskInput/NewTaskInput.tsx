@@ -10,7 +10,6 @@ interface IFormState {
 }
 
 function NewTaskInput() {
-  // const count = useAppSelector((state) => state.tasks.value)
   const dispatch = useAppDispatch()
   const [formState, setFormState] = useState<IFormState>({
     title: '',
@@ -55,7 +54,7 @@ function NewTaskInput() {
       />
       <div id="add-days-container">
         <label>Deadline in days *</label>
-        <input type="number" id="increment-days" name="days" step="1" onChange={(e) => handleOnChange(e)} />
+        <input id="increment-days" type="number" name="days" step="1" onChange={(e) => handleOnChange(e)} />
       </div>
       <button disabled={!submitEnabled} type="submit" onClick={() => dispatch(addNewTask(formState))}>
         +

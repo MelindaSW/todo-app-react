@@ -2,9 +2,9 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from '../../redux/store'
 import { incrementDays } from '../../helpers/taskHelper'
 
-type Task = {
+export type Task = {
   id: number
-  name: string
+  title: string
   description: string
   deadline: Date
   created: Date
@@ -26,15 +26,42 @@ interface TaskState {
 // Define the initial state using that type
 const initialState: TaskState = {
   tasks: [
-    // {
-    //   id: 1,
-    //   name: 'test task',
-    //   description: 'this is a short description',
-    //   deadline: new Date(),
-    //   created: new Date(),
-    //   completed: false,
-    //   overdue: false,
-    // },
+    {
+      id: 1,
+      title: 'test task',
+      description: 'this is a short description',
+      deadline: incrementDays(new Date(), 3),
+      created: new Date(),
+      completed: false,
+      overdue: false,
+    },
+    {
+      id: 2,
+      title: 'test task 2',
+      description: 'this description',
+      deadline: incrementDays(new Date(), 7),
+      created: new Date(),
+      completed: true,
+      overdue: false,
+    },
+    {
+      id: 3,
+      title: 'test mock task 3',
+      description: 'this is another short but longer description',
+      deadline: incrementDays(new Date(), 0),
+      created: new Date(),
+      completed: false,
+      overdue: false,
+    },
+    {
+      id: 4,
+      title: 'test mock task again',
+      description: 'this is another short but longer description',
+      deadline: incrementDays(new Date(), 9),
+      created: new Date(),
+      completed: true,
+      overdue: false,
+    },
   ],
 }
 
@@ -48,7 +75,7 @@ export const taskSlice = createSlice({
 
       const newTask = {
         id: state.tasks.length + 1,
-        name: action.payload.title,
+        title: action.payload.title,
         description: action.payload.description,
         deadline: incrementDays(currentDate, action.payload.incrementDays),
         created: currentDate,

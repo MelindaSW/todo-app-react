@@ -1,0 +1,28 @@
+tr {
+  background-color: white;
+  margin-top: 20px;
+}
+
+td {
+  color: var(--main-color);
+  font-size: small;
+}
+
+.checkdone {
+  height: 19px;
+  margin: auto;
+}
+
+input[type='checkbox'] {
+  accent-color: green;
+}
+
+img {
+  width: 25px;
+  padding: 5px;
+}
+
+.displayMore,
+.deleteTask {
+  text-align: center;
+}

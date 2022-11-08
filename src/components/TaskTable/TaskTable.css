@@ -1,0 +1,15 @@
+table {
+  background-color: var(--detail-color-light);
+  /* border: 1px solid #333; */
+  color: var(--main-color);
+  width: 95%;
+  margin: 1rem auto;
+  text-align: left;
+  padding: 20px;
+}
+
+th {
+  border: none;
+  background-color: var(--detail-color-light);
+  padding: 10px 0px;
+}
