@@ -1,4 +1,4 @@
-import React, { FormEvent, ChangeEvent, useState } from 'react'
+import React, { FormEvent, useState } from 'react'
 import { useAppSelector, useAppDispatch } from '../../redux/hooks'
 import { addNewTask } from '../../features/tasks/taskSlice'
 import './NewTaskInput.css'
@@ -23,9 +23,9 @@ function NewTaskInput() {
     console.log('form submitted ✅')
   }
 
-  const handleOnChange = (event: ChangeEvent<Element>) => {
+  const handleOnChange = (event: React.FormEvent<HTMLInputElement>) => {
     const targetId = event.currentTarget.id
-    const currentTarget: string | number | null = event.currentTarget.nodeValue
+    const currentTarget: string | number | null = event.currentTarget.value
     console.log(targetId + ' ' + currentTarget)
     setFormState({
       title: currentTarget !== null && targetId === 'task-title' ? currentTarget : formState.title,
