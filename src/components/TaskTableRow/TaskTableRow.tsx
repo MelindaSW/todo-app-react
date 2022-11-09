@@ -57,7 +57,7 @@ const TaskTableRow = () => {
           </tr>
           {displayMore.display && task.id === displayMore.id && (
             <>
-              <tr className="more-info">
+              <tr className="more-info" key={task.id}>
                 <td colSpan={5}>
                   <ul>
                     <li>

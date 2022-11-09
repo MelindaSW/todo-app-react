@@ -3,6 +3,7 @@ tr {
   margin-top: 20px;
   padding: 10px;
   display: table-row;
+  /* transition: all 0.5s ease-in-out; */
 }
 
 /* tr:nth-child(even) {
@@ -36,6 +37,13 @@ img {
 .deleteTask,
 .overdue {
   text-align: center;
+}
+
+.displayMore > img:hover,
+.deleteTask > img:hover {
+  cursor: pointer;
+  background-color: var(--detail-color-dark-opaque);
+  border-radius: 50%;
 }
 
 .more-info > * {
