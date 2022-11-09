@@ -4,19 +4,22 @@ import './TaskTable.css'
 
 const TaskTable = () => {
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Done</th>
-          <th>More</th>
-          <th>Delete</th>
-        </tr>
-      </thead>
-      <tbody>
-        <TaskTableRow />
-      </tbody>
-    </table>
+    <div id="taskcontainer">
+      <h1>Tasks</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Done</th>
+            <th>Title</th>
+            <th>More</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <TaskTableRow />
+        </tbody>
+      </table>
+    </div>
   )
 }
 
