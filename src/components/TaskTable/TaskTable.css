@@ -8,10 +8,9 @@
 
 table {
   border-spacing: 0px 13px;
-  width: 90%;
+  width: 100%;
   margin: 1rem auto;
   text-align: left;
-  padding: 1.1rem 0.7rem;
 }
 
 th {

@@ -18,6 +18,15 @@ export type NewTaskPayload = {
   incrementDays: number
 }
 
+type MarkTaskAsDonePayload = {
+  done: boolean
+  id: number
+}
+
+type DeleteTaskPayload = {
+  task: Task
+}
+
 // Define a type for the slice state
 interface TaskState {
   tasks: Task[]
@@ -51,10 +60,28 @@ const initialState: TaskState = {
       deadline: incrementDays(new Date(), 0),
       created: new Date(),
       completed: false,
-      overdue: false,
+      overdue: true,
     },
     {
       id: 4,
+      title: 'test mock task again',
+      description: 'this is another short but longer description',
+      deadline: incrementDays(new Date(), 9),
+      created: new Date(),
+      completed: true,
+      overdue: false,
+    },
+    {
+      id: 5,
+      title: 'test mock task 3',
+      description: 'this is another short but longer description',
+      deadline: incrementDays(new Date(), 0),
+      created: new Date(),
+      completed: false,
+      overdue: true,
+    },
+    {
+      id: 6,
       title: 'test mock task again',
       description: 'this is another short but longer description',
       deadline: incrementDays(new Date(), 9),
@@ -85,24 +112,25 @@ export const taskSlice = createSlice({
 
       state.tasks.push(newTask)
     },
+    markTaskAsDone: (state, action: PayloadAction<MarkTaskAsDonePayload>) => {
+      state.tasks.forEach((task) => {
+        if (action.payload.id === task.id) {
+          task.completed = action.payload.done
+        }
+      })
+    },
+    deleteTask: (state, action: PayloadAction<DeleteTaskPayload>) => {
+      const index = state.tasks.findIndex((element: Task) => element.id === action.payload.task.id)
+      if (index > -1) {
+        state.tasks.splice(index, 1)
+      }
+    },
   },
 })
 
-export const { addNewTask } = taskSlice.actions
+export const { addNewTask, markTaskAsDone, deleteTask } = taskSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type
-// export const selectCount = (state: RootState) => state.tasks.value
 export const selectTasks = (state: RootState) => state.tasks.tasks
 
 export default taskSlice.reducer
-
-// increment: (state) => {
-//   state.value += 1
-// },
-// decrement: (state) => {
-//   state.value -= 1
-// },
-// // Use the PayloadAction type to declare the contents of `action.payload`
-// incrementByAmount: (state, action: PayloadAction<number>) => {
-//   state.value += action.payload
-// },

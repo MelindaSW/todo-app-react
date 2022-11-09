@@ -11,6 +11,7 @@ const TaskTable = () => {
           <tr>
             <th>Done</th>
             <th>Title</th>
+            <th>Overdue</th>
             <th>More</th>
             <th>Delete</th>
           </tr>

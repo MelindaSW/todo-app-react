@@ -1,15 +1,17 @@
 tr {
+  background-color: white;
   margin-top: 20px;
   padding: 10px;
+  display: table-row;
 }
 
-tr:nth-child(even) {
+/* tr:nth-child(even) {
   background-color: var(--light-color);
 }
 
 tr:nth-child(odd) {
   background-color: var(--detail-color-dark-opaque);
-}
+} */
 
 td {
   color: var(--main-color);
@@ -22,7 +24,7 @@ td {
 }
 
 input[type='checkbox'] {
-  accent-color: green;
+  accent-color: var(--detail-color-dark);
 }
 
 img {
@@ -31,13 +33,20 @@ img {
 }
 
 .displayMore,
-.deleteTask {
+.deleteTask,
+.overdue {
   text-align: center;
 }
 
-.more-info {
-  /* height: 100px; */
-  background-color: white;
-  width: 100%;
-  margin-top: 0px;
+.more-info > * {
+  background-color: var(--light-color);
+}
+
+ul {
+  list-style: circle;
+  line-height: 30px;
+}
+
+li > span {
+  font-weight: bold;
 }

@@ -63,3 +63,9 @@ button:disabled {
   width: 60px;
   margin-left: 10px;
 }
+
+@media (min-width: 1000px) {
+  form {
+    min-width: 50px;
+  }
+}
