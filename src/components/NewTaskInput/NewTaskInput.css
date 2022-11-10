@@ -21,9 +21,10 @@ label {
 input {
   border: none;
   border-radius: 6px;
-  width: 100%;
+  width: 96%;
   margin-top: 1rem;
-  padding: 7px 0px;
+  padding: 7px 10px;
+  align-self: flex-start;
 }
 
 button {
@@ -59,7 +60,8 @@ button:disabled {
   align-self: center;
 }
 
-#add-days-container > input {
+#add-days-container > input,
+#add-days-container > label {
   margin-top: 0px;
 }
 

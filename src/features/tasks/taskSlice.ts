@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from '../../redux/store'
-import { incrementDays, isOverdue } from '../../helpers/taskHelper'
-import { act } from 'react-dom/test-utils'
+import { incrementDays } from '../../helpers/taskHelper'
 
 export type Task = {
   id: number
@@ -28,10 +27,6 @@ type DeleteTaskPayload = {
   task: Task
 }
 
-type SetIsOverduePayload = {
-  task: Task
-}
-
 // Define a type for the slice state
 interface TaskState {
   tasks: Task[]
@@ -44,7 +39,7 @@ const initialState: TaskState = {
       id: 1,
       title: 'test task',
       description: 'this is a short description',
-      deadline: incrementDays(new Date(), 3),
+      deadline: incrementDays(new Date(), 0),
       created: new Date(),
       completed: false,
       overdue: false,
@@ -64,8 +59,8 @@ const initialState: TaskState = {
       description: 'this is another short but longer description',
       deadline: incrementDays(new Date(), 0),
       created: new Date(),
-      completed: false,
-      overdue: true,
+      completed: true,
+      overdue: false,
     },
     {
       id: 4,
@@ -83,7 +78,7 @@ const initialState: TaskState = {
       deadline: incrementDays(new Date(), 0),
       created: new Date(),
       completed: false,
-      overdue: true,
+      overdue: false,
     },
     {
       id: 6,
@@ -131,8 +126,13 @@ export const taskSlice = createSlice({
       }
     },
     setIsOverdue: (state) => {
-      // isOverdue(action.payload.task.created, action.payload.task.deadline)
-      console.log('in setisoverdue')
+      state.tasks.forEach((task) => {
+        if (task.deadline <= task.created && task.completed === false) {
+          task.overdue = true
+        } else {
+          task.overdue = false
+        }
+      })
     },
   },
 })

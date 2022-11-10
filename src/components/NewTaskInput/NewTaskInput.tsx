@@ -42,15 +42,15 @@ function NewTaskInput() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>New task</h1>
+      <h1>New todo</h1>
       <label htmlFor="task-title">Title *</label>
-      <input id="task-title" type="text" name="task-title" placeholder="Title *" onChange={(e) => handleOnChange(e)} />
+      <input id="task-title" type="text" name="task-title" placeholder="Title" onChange={(e) => handleOnChange(e)} />
       <label htmlFor="task-description">Description *</label>
       <input
         id="task-description"
         type="text"
         name="task-description"
-        placeholder="Description *"
+        placeholder="Short description"
         onChange={(e) => handleOnChange(e)}
       />
       <div id="add-days-container">

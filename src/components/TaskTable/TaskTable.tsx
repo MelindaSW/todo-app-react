@@ -5,7 +5,7 @@ import './TaskTable.css'
 const TaskTable = () => {
   return (
     <div id="taskcontainer">
-      <h1>Tasks</h1>
+      <h1>Todos</h1>
       <table>
         <thead>
           <tr>

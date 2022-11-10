@@ -46,7 +46,10 @@ const TaskTableRow = () => {
             </td>
             <td>{task.title}</td>
             <td className="overdue">
-              <img src={task.overdue ? exclamation_mark_sign_triangle_icon : ''} />
+              <img
+                src={task.overdue ? exclamation_mark_sign_triangle_icon : ''}
+                style={{ backgroundColor: task.overdue ? '#a416247c' : 'none', borderRadius: '20%' }}
+              />
             </td>
             <td className="displayMore">
               <img
