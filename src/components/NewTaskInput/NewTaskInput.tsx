@@ -1,5 +1,5 @@
 import React, { FormEvent, useState } from 'react'
-import { useAppSelector, useAppDispatch } from '../../redux/hooks'
+import { useAppDispatch } from '../../redux/hooks'
 import { addNewTask } from '../../features/tasks/taskSlice'
 import './NewTaskInput.css'
 
@@ -26,7 +26,6 @@ function NewTaskInput() {
   const handleOnChange = (event: React.FormEvent<HTMLInputElement>) => {
     const targetId = event.currentTarget.id
     const currentTargetValue: string | number | null = event.currentTarget.value
-    // console.log({ currentTargetValue, targetId })
 
     setFormState({
       title: currentTargetValue !== null && targetId === 'task-title' ? currentTargetValue : formState.title,
@@ -43,8 +42,10 @@ function NewTaskInput() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="New Task">New task</label>
+      <h1>New task</h1>
+      <label htmlFor="task-title">Title *</label>
       <input id="task-title" type="text" name="task-title" placeholder="Title *" onChange={(e) => handleOnChange(e)} />
+      <label htmlFor="task-description">Description *</label>
       <input
         id="task-description"
         type="text"

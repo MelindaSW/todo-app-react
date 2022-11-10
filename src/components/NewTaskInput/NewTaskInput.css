@@ -1,5 +1,6 @@
 form {
   background-color: var(--detail-color-light);
+  border-radius: 10px;
   color: var(--main-color);
   display: flex;
   flex-direction: column;
@@ -14,10 +15,12 @@ form {
 label {
   align-self: flex-start;
   font-weight: bold;
+  margin-top: 0.7rem;
 }
 
 input {
   border: none;
+  border-radius: 6px;
   width: 100%;
   margin-top: 1rem;
   padding: 7px 0px;
@@ -26,6 +29,7 @@ input {
 button {
   align-self: flex-start;
   border: none;
+  border-radius: 6px;
   background-color: var(--detail-color-dark);
   color: var(--main-color);
   cursor: pointer;

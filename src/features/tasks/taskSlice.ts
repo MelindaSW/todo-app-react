@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from '../../redux/store'
-import { incrementDays } from '../../helpers/taskHelper'
+import { incrementDays, isOverdue } from '../../helpers/taskHelper'
+import { act } from 'react-dom/test-utils'
 
 export type Task = {
   id: number
@@ -24,6 +25,10 @@ type MarkTaskAsDonePayload = {
 }
 
 type DeleteTaskPayload = {
+  task: Task
+}
+
+type SetIsOverduePayload = {
   task: Task
 }
 
@@ -101,7 +106,7 @@ export const taskSlice = createSlice({
       const currentDate = new Date()
 
       const newTask = {
-        id: state.tasks.length + 1,
+        id: state.tasks.length + Math.random(),
         title: action.payload.title,
         description: action.payload.description,
         deadline: incrementDays(currentDate, action.payload.incrementDays),
@@ -125,10 +130,14 @@ export const taskSlice = createSlice({
         state.tasks.splice(index, 1)
       }
     },
+    setIsOverdue: (state) => {
+      // isOverdue(action.payload.task.created, action.payload.task.deadline)
+      console.log('in setisoverdue')
+    },
   },
 })
 
-export const { addNewTask, markTaskAsDone, deleteTask } = taskSlice.actions
+export const { addNewTask, markTaskAsDone, deleteTask, setIsOverdue } = taskSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectTasks = (state: RootState) => state.tasks.tasks

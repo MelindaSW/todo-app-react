@@ -1,9 +1,8 @@
 tr {
   background-color: white;
   margin-top: 20px;
-  padding: 10px;
   display: table-row;
-  /* transition: all 0.5s ease-in-out; */
+  height: 57px;
 }
 
 /* tr:nth-child(even) {
@@ -17,6 +16,18 @@ tr:nth-child(odd) {
 td {
   color: var(--main-color);
   font-size: small;
+  border-style: none;
+}
+
+td:first-child {
+  /* border-left-style: solid; */
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+td:last-child {
+  /* border-right-style: solid; */
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .checkdone {

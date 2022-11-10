@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useAppSelector, useAppDispatch } from '../../redux/hooks'
 import dateformat from 'dateformat'
-import { deleteTask, markTaskAsDone } from '../../features/tasks/taskSlice'
+import { deleteTask, markTaskAsDone, setIsOverdue } from '../../features/tasks/taskSlice'
 import './TaskTableRow.css'
 import arrow_down_icon from '../../assets/arrow_down_icon.png'
 import arrow_up_icon from '../../assets/arrow_up_icon.png'
@@ -13,6 +13,10 @@ const TaskTableRow = () => {
 
   const tasks = useAppSelector((state) => state.tasks.tasks)
   const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    dispatch(setIsOverdue())
+  }, [])
 
   const toggleMoreInfo = (id: number) => {
     setDisplayMore({
