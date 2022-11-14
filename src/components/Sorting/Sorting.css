@@ -1,0 +1,45 @@
+fieldset {
+  border-radius: 10px;
+  border-color: var(--detail-color-dark);
+  display: flex;
+  font-size: small;
+  flex-wrap: wrap;
+}
+
+.radiobtns {
+  display: flex;
+  margin-left: 10px;
+}
+
+label {
+  font-weight: normal;
+  margin: auto;
+}
+
+legend {
+  color: var(--main-color);
+  font-weight: bold;
+}
+
+input[type='radio'] {
+  margin: 3px 3px;
+  /* remove standard background appearance */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* create custom radiobutton appearance */
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  padding: 2px;
+  /* background-color only for content */
+  background-clip: content-box;
+  border: 2px solid var(--main-color);
+  background-color: white;
+  border-radius: 50%;
+}
+
+/* appearance for checked radiobutton */
+input[type='radio']:checked {
+  background-color: var(--detail-color-dark);
+}

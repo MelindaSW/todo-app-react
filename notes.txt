@@ -3,8 +3,10 @@ Features:
  Add a task
  Delete task
  Mark task as completed
+
  Delete all tasks
  Delete completed tasks
+
  Sort tasks
  - alphabetically
  - Completed / not completed

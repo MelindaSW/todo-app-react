@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from '../../redux/store'
 import { incrementDays } from '../../helpers/taskHelper'
+import { tasks } from './tasks'
 
 export type Task = {
   id: number
@@ -34,44 +35,7 @@ interface TaskState {
 
 // Define the initial state using that type
 const initialState: TaskState = {
-  tasks: [
-    {
-      id: 1,
-      title: 'Organize storage',
-      description: 'Pack and sort things in the new boxes and sweep the floor.',
-      deadline: incrementDays(new Date(), 1),
-      created: new Date(),
-      completed: false,
-      overdue: false,
-    },
-    {
-      id: 2,
-      title: 'Drive boxes to goodwill',
-      description: 'Take the boxes from the spring cleaning to the second hand store for donation.',
-      deadline: incrementDays(new Date(), 7),
-      created: new Date(),
-      completed: true,
-      overdue: false,
-    },
-    {
-      id: 3,
-      title: 'Book moving company',
-      description: 'Decide what offer to accept and book the company with the best reviews and offer.',
-      deadline: incrementDays(new Date(), 0),
-      created: new Date(),
-      completed: false,
-      overdue: false,
-    },
-    {
-      id: 4,
-      title: 'Buy more bubble wrap',
-      description: 'Order two more rolls.',
-      deadline: incrementDays(new Date(), 9),
-      created: new Date(),
-      completed: false,
-      overdue: false,
-    },
-  ],
+  tasks,
 }
 
 export const taskSlice = createSlice({
@@ -109,17 +73,42 @@ export const taskSlice = createSlice({
     },
     setIsOverdue: (state) => {
       state.tasks.forEach((task) => {
-        if (task.deadline <= task.created && task.completed === false) {
+        if (task.deadline <= new Date() && task.completed === false) {
           task.overdue = true
         } else {
           task.overdue = false
         }
       })
     },
+    clearSorting: (state) => {
+      state.tasks.sort((t1, t2) => (t1.id > t2.id ? 1 : -1))
+    },
+    sortByDone: (state) => {
+      state.tasks.sort((t1, t2) => (t1.completed > t2.completed ? 1 : -1))
+    },
+    sortByTitle: (state) => {
+      state.tasks.sort((t1, t2) => (t1.title > t2.title ? 1 : -1))
+    },
+    sortByOverdue: (state) => {
+      state.tasks.sort((t1, t2) => (t1.overdue > t2.overdue ? 1 : -1))
+    },
+    sortByCreationDate: (state) => {
+      state.tasks.sort((t1, t2) => (t1.created > t2.created ? 1 : -1))
+    },
   },
 })
 
-export const { addNewTask, markTaskAsDone, deleteTask, setIsOverdue } = taskSlice.actions
+export const {
+  addNewTask,
+  markTaskAsDone,
+  deleteTask,
+  setIsOverdue,
+  clearSorting,
+  sortByDone,
+  sortByTitle,
+  sortByOverdue,
+  sortByCreationDate,
+} = taskSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectTasks = (state: RootState) => state.tasks.tasks
