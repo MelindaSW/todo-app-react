@@ -90,7 +90,7 @@ export const taskSlice = createSlice({
       state.tasks.sort((t1, t2) => (t1.title > t2.title ? 1 : -1))
     },
     sortByOverdue: (state) => {
-      state.tasks.sort((t1, t2) => (t1.overdue > t2.overdue ? 1 : -1))
+      state.tasks.sort((t1, t2) => (t1.overdue < t2.overdue ? 1 : -1))
     },
     sortByCreationDate: (state) => {
       state.tasks.sort((t1, t2) => (t1.created > t2.created ? 1 : -1))
