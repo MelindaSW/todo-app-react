@@ -11,7 +11,7 @@ fieldset {
   margin-left: 10px;
 }
 
-label {
+.radiobtns > label {
   font-weight: normal;
   margin: auto;
 }
