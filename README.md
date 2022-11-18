@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# A todo app created with React.js and react-redux
+
+### View it live [here](https://mytodos-msw.netlify.app/)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
