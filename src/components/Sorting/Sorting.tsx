@@ -39,7 +39,7 @@ const Sorting = () => {
           <legend>Sort by:</legend>
           <div className="radiobtns">
             <input type="radio" id="clear" name="sortbtn" value="clear" onChange={(e) => handleOnChange(e)} />
-            <label htmlFor="clear">Clear</label>
+            <label htmlFor="clear">None</label>
           </div>
 
           <div className="radiobtns">
